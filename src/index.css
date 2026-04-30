@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --bg-deep: #0a0e27;
+  --accent-blue: #00a4ef;
+  --accent-gold: #ffb900;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.7);
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s all ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
